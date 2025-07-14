@@ -4,27 +4,17 @@ pipeline {
 
     stages {
 
-        stage("build"){
+        stage("run file"){
 
             steps {
                 
                 echo 'building the application'
+                nodejs('NodeJS'){
+                    sh 'node server.js'
+                }
                 echo ' the application built'
             }
         }
-        stage("test"){
-
-            steps {
-                echo 'testing the application'
-                echo 'the application tested'
-            }
-        }
-
-        stage("deploy"){
-
-            steps{
-                echo 'deploying the application'
-            }
-        }
+       
     }
 }
